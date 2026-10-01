@@ -8,41 +8,42 @@
   </a>
 </p>
 
-# Hardal Google Tag Manager Template
+# Hardal Event Tag for Google Tag Manager
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://semver.org)
+Send named website events to Hardal's `/api/ss-collect` endpoint from a Google Tag Manager (GTM) **web container**. This tag sends a browser pixel request with a project ID, API key, event name, value, and additional properties.
 
-Send server-side events to a Hardal endpoint with this Google Tag Manager (GTM) template. Configure the project ID, API key, event fields, and optional custom domain.
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Template version](https://img.shields.io/badge/version-1.0.0-green.svg)](Hardal.tpl)
 
-## Usage
+## Getting started
 
-To use this GTM template, follow these steps:
+You need a GTM web container, a Hardal project ID and API key, and the collection domain for your integration. Configuration values are included in browser requests.
 
-1. Download the template file (`Hardal.tpl`).
-2. Import the template files into your Google Tag Manager workspace.
-3. Create a new Tag in GTM and choose the trigger which you want.
+## Installation and configuration
+
+1. Download [Hardal.tpl](Hardal.tpl).
+2. In the GTM web container, open **Templates > Tag Templates > New** and import the file.
+3. Create a tag using the imported Hardal template.
 4. Configure the tag with the necessary parameters:
 
    - `projectId`: Replace this with your desired project ID.
-   - `apiKey`: Replace this with your API key provided by the API service you are using.
+   - `apiKey`: Your Hardal API key.
    - `eventType`: The type of event you want to track.
    - `eventvalue`: The value associated with the event.
-   - `eventData`: An object containing additional event data.
+   - `eventData`: JSON properties as text, without surrounding braces; see the example below.
 
-   You can also provide a `customDomain` parameter if you want to use a specific domain for the API endpoint. If not provided, it will default to 'beta.usehardal.com'.
+   You can also provide a `customDomain` parameter if you want to use a specific domain for the API endpoint. If not provided, the template defaults to `beta.usehardal.com`.
 
-5. Add trigger(s) to the tag to determine when the pixel should be sent.
+5. Add a trigger to determine when the event should be sent, then check the request in GTM Preview.
 
 6. Save and publish your changes in GTM.
 
-## Example Usage
+## Example configuration
 
 Here's an example of how the tag configuration might look like:
 
-![example](./example/hardal-gtm-tempate-example.png)
+![Example Hardal tag configuration in Google Tag Manager](example/hardal-gtm-tempate-example.png)
 
-
-## Example Data
+## Example event data
 
 The `eventData` field is text; enter the JSON properties without surrounding braces. This matches the template's request format.
 
@@ -56,3 +57,12 @@ The `eventData` field is text; enter the JSON properties without surrounding bra
   "customDomain": "ss.example.com"
 }
 ```
+
+## Support
+
+Maintained by [Hardal](https://github.com/usehardal).
+
+- [Hardal documentation](https://docs.usehardal.com)
+- [Report an issue](https://github.com/usehardal/hardal-google-tag-manager-template/issues)
+- [Hardal website](https://usehardal.com)
+
