@@ -1,6 +1,10 @@
 <p align="center">
-  <a href="https://usehardal.com/?utm_source=github&utm_medium=gatsby_plugin_logo" target="_blank">
-    <img src="https://res.cloudinary.com/raufsamestone/image/upload/v1671398927/hardal/gj5urlgigxm9axbpp1oh.svg" alt="Hardal" width="180" height="84">
+  <a href="https://usehardal.com/">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://imge.usehardal.com/cdn/logo/new/svg/o9vnmleauvr2t5xvn9xe.svg?raw=1">
+      <source media="(prefers-color-scheme: light)" srcset="https://imge.usehardal.com/cdn/logo/new/svg/yglazyhcy7kv6053lrso.svg?raw=1">
+      <img src="https://imge.usehardal.com/cdn/logo/new/svg/yglazyhcy7kv6053lrso.svg?raw=1" alt="Hardal" width="180">
+    </picture>
   </a>
 </p>
 
@@ -8,7 +12,7 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![version](https://img.shields.io/badge/version-1.0.0-green.svg)](https://semver.org)
 
-An official template to using [Hardal](https://usehardal.com/) for Google Tag Manager (GTM) that allows you to track events by sending server-side events to a specified API endpoint. The template provides options to customize the API key, custom domain, and event data.
+Send server-side events to a Hardal endpoint with this Google Tag Manager (GTM) template. Configure the project ID, API key, event fields, and optional custom domain.
 
 ## Usage
 
@@ -40,7 +44,7 @@ Here's an example of how the tag configuration might look like:
 
 ## Example Data
 
-Here's an example of how your data convert through server-side endpoint response:
+The `eventData` field is text; enter the JSON properties without surrounding braces. This matches the template's request format.
 
 ```json
 {
@@ -48,11 +52,7 @@ Here's an example of how your data convert through server-side endpoint response
   "apiKey": "YOUR_API_KEY_HERE",
   "eventType": "purchase",
   "eventvalue": "99.99",
-  "eventData": {
-    "product": "Example Product",
-    "quantity": 1,
-    "currency": "USD",
-    ...and/or your any parameters 
-  },
+  "eventData": "\"product\":\"Example Product\",\"quantity\":1,\"currency\":\"USD\"",
   "customDomain": "ss.example.com"
 }
+```
